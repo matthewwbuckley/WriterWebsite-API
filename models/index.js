@@ -18,6 +18,7 @@ const host = process.env.MONGO_HOST;
 const port = process.env.MONGO_PORT;
 
 let uri = `mongodb://${user}:${pass}@${host}:${port}`;
+console.log(uri)
 if (nconf.get('mongoDatabase')) {
   uri = `${uri}/${process.env.MONGO_DB}`;
 }
