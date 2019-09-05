@@ -6,26 +6,29 @@ mongoose.set('debug', true);
 
 mongoose.Promise = Promise;
 
-const user = nconf.get('mongoUser');
-const pass = nconf.get('mongoPass');
-const host = nconf.get('mongoHost');
-const port = nconf.get('mongoPort');
+// local setup
+// const user = nconf.get('mongoUser');
+// const pass = nconf.get('mongoPass');
+// const host = nconf.get('mongoHost');
+// const port = nconf.get('mongoPort');
+
+const user = process.env.MONGO_USER;
+const pass = process.env.MONGO_PASS;
+const host = process.env.MONGO_HOST;
+const port = process.env.MONGO_PORT;
 
 let uri = `mongodb://${user}:${pass}@${host}:${port}`;
-console.log(uri);
 if (nconf.get('mongoDatabase')) {
-  uri = `${uri}/${nconf.get('mongoDatabase')}`;
+  uri = `${uri}/${process.env.MONGO_DB}`;
 }
-console.log(uri);
-// local
-// uri = 'mongodb://localhost/ww-api';
+
 
 mongoose.connect(uri, (err, res) => {
   if (err) {
-    console.log(`ERROR connecting to ${uri} due to ${err}`);
+    console.log(`ERROR connecting to ${process.env.MONGO_DB} due to ${err}`);
     throw err;
-  } else {npm 
-    console.log(`Succeeded connected to: ${uri} with ${res}`);
+  } else {
+    console.log(`Succeeded connected to: ${process.env.MONGO_DB} with ${res}`);
   }
 });
 
