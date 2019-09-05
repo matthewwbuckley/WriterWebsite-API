@@ -16,12 +16,13 @@ const user = process.env.MONGO_USER;
 const pass = process.env.MONGO_PASS;
 const host = process.env.MONGO_HOST;
 const port = process.env.MONGO_PORT;
+const db = process.env.MONGO_DB;
 
-let uri = `mongodb://${user}:${pass}@${host}:${port}`;
-console.log(uri)
-if (nconf.get('mongoDatabase')) {
-  uri = `${uri}/${process.env.MONGO_DB}`;
-}
+let uri = `mongodb://${user}:${pass}@${host}:${port}/${db}`;
+// console.log(uri)
+// if (nconf.get('mongoDatabase')) {
+//   uri = `${uri}/${process.env.MONGO_DB}`;
+// }
 
 
 mongoose.connect(uri, (err, res) => {
