@@ -1,8 +1,8 @@
 ## Writer Website for Short Stories
-### Front
+### API
 
 
-This is the front end of a Short Story Site. [A live demo can be seen here.](https://ww-front.herokuapp.com/)
+This is the API of a Short Story Site. [It is used as part of the live, seen here.](https://ww-front.herokuapp.com/)
 
 **Please note that both are hosted using the Free plan on Heroku, which means that both projects will require time to become active.**
 
@@ -30,4 +30,6 @@ If you would like to host the demo yourself you can clone or download the projec
 
 ```npm start```
 
-It will be connected to the hosted backend, which you can check out [here](https://github.com/matthewwbuckley/WriterWebsite-API). If you would like to host the backend yourself with a different database you will need to follow instructions on that project. The base api URL for the hosted backend is located at /scr/apiActions/index.js which should be changed if you host the backend locally or using another service. 
+It is designed to work with the front, which you can check out [here](https://github.com/matthewwbuckley/WriterWebsite-Front). If you would like to host the backend yourself with a different database you will need to either:
+1) For running locally nconf and a keys.json file in the project directory stores information for the database you create. You need to comment and uncomment the appropriate lines in /models/index.js
+2) For a hosted setup you should set up relevent environment variables corresponding to the variables shown in /models/index.js.
