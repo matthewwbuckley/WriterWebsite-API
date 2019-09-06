@@ -12,6 +12,7 @@ mongoose.Promise = Promise;
 // const host = nconf.get('mongoHost');
 // const port = nconf.get('mongoPort');
 
+// hosted setup
 const user = process.env.MONGO_USER;
 const pass = process.env.MONGO_PASS;
 const host = process.env.MONGO_HOST;
